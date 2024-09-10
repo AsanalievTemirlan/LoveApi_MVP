@@ -14,15 +14,14 @@ import com.example.aidar_badirov_hw_5_2.databinding.FragmentLoveCalculatorBindin
 
 class LoveCalculatorFragment : Fragment(), LoveContract.View {
 
-    private var _binding: FragmentLoveCalculatorBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentLoveCalculatorBinding
     private val presenter = LovePresenter(this)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentLoveCalculatorBinding.inflate(inflater, container, false)
+        binding = FragmentLoveCalculatorBinding.inflate(layoutInflater)
         return binding.root
     }
 
@@ -60,5 +59,7 @@ class LoveCalculatorFragment : Fragment(), LoveContract.View {
     override fun showError(message: String) {
         Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
     }
+
+
 
 }
